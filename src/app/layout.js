@@ -24,11 +24,17 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <nav>
-          <h5>Logo Here</h5>
+          <h5 className="text-2xl font-bold">Logo Here</h5>
           <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Services</li>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/about">About</a>
+            </li>
+            <li>
+              <a href="/services">Services</a>
+            </li>
             <li>Contact</li>
           </ul>
         </nav>
