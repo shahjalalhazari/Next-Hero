@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "./components/Navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,21 +24,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <nav>
-          <h5 className="text-2xl font-bold">Logo Here</h5>
-          <ul>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/about">About</a>
-            </li>
-            <li>
-              <a href="/services">Services</a>
-            </li>
-            <li>Contact</li>
-          </ul>
-        </nav>
+        <Navbar/>
         {children}
         <footer>2024 Next Hero developed by Shahjalal Hazari</footer>
       </body>
