@@ -23,7 +23,17 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <nav>
+          <h5>Logo Here</h5>
+          <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Services</li>
+            <li>Contact</li>
+          </ul>
+        </nav>
         {children}
+        <footer>2024 Next Hero developed by Shahjalal Hazari</footer>
       </body>
     </html>
   );
