@@ -13,6 +13,7 @@ const AboutPage = () => {
           <Link href={"/about/history"}>Our History</Link>
         </li>
       </ul>
+      {/* {name} */}
     </div>
   );
 };
