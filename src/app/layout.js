@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       >
         <Navbar/>
         {children}
-        <footer>2024 Next Hero developed by Shahjalal Hazari</footer>
+        <footer className="text-center bg-red-400 py-2 text-white">2024 Next Hero developed by Shahjalal Hazari</footer>
       </body>
     </html>
   );
