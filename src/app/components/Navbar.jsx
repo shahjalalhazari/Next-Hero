@@ -28,11 +28,29 @@ const Navbar = () => {
       title: "Blogs",
       path: "/blogs",
     },
+    {
+      title: "Dashboard",
+      path: "/dashboard",
+    },
   ];
 
   const handleLogin = () => {
     router.push("/login");
   };
+
+  if (pathName.includes("dashboard"))
+    return (
+      <nav className="bg-blue-400 mx-40">
+        <ul className="flex space-x-5">
+          <li>
+            <Link href="/dashboard">Dashboard</Link>
+          </li>
+          <li>
+            <Link href="/create-user">Create User</Link>
+          </li>
+        </ul>
+      </nav>
+    );
   return (
     <nav className="bg-red-300 px-40 py-3 flex items-center justify-between">
       <h5 className="text-2xl font-bold">Next Hero</h5>
