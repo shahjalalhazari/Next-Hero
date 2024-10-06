@@ -1,4 +1,5 @@
-import MyHeading from "./components/MyHeading";
+import MyHeading from "@/components/MyHeading";
+
 
 
 export default function Home() {

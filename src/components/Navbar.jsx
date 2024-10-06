@@ -12,18 +12,18 @@ const Navbar = () => {
       title: "Home",
       path: "/",
     },
-    {
-      title: "About",
-      path: "/about",
-    },
-    {
-      title: "Services",
-      path: "/services",
-    },
-    {
-      title: "Contact",
-      path: "/contact",
-    },
+    // {
+    //   title: "About",
+    //   path: "/about",
+    // },
+    // {
+    //   title: "Services",
+    //   path: "/services",
+    // },
+    // {
+    //   title: "Contact",
+    //   path: "/contact",
+    // },
     {
       title: "Blogs",
       path: "/blogs",
@@ -31,6 +31,10 @@ const Navbar = () => {
     {
       title: "Posts",
       path: "/posts",
+    },
+    {
+      title: "Meals",
+      path: "/meals",
     },
     {
       title: "Dashboard",

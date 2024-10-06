@@ -1,4 +1,4 @@
-import { getPosts } from "@/utilits/getPost";
+import { getPosts } from "@/utilities/getPost";
 import Link from "next/link";
 
 const PostsPage = async () => {

@@ -1,4 +1,4 @@
-import { getPosts } from "@/utilits/getPost";
+import { getPosts } from "@/utilities/getPost";
 
 // method-2
 const getPostDetail = async (id) => {
