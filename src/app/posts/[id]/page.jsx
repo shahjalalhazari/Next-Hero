@@ -7,8 +7,19 @@ const getPostDetail = async (id) => {
   return data;
 };
 
-const PostDetailPage = async ({ params }) => {
 
+// set dynamic page title, description and keywords.
+export const generateMetadata = async ({ params }) => {
+  const post = await getPostDetail(params.id);
+
+  return {
+    title: post.title,  // set post title as page title.
+    description: post.body,  // set post detail as page description.
+    keywords: post.body.split(" ")  // set post detail's each word as page keywords.
+  };
+};
+
+const PostDetailPage = async ({ params }) => {
   /**
    * Method-1
     // get all the posts
@@ -16,7 +27,7 @@ const PostDetailPage = async ({ params }) => {
     // find the specific post with their id of
     const post = allPosts.find((post) => post.id == params.id);
   */
-  
+
   const post = await getPostDetail(params.id);
 
   return (

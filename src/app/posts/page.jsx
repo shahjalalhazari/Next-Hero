@@ -1,6 +1,13 @@
 import { getPosts } from "@/utilities/getPost";
 import Link from "next/link";
 
+export const metadata = {
+  title: {
+    absolute: "Posts", // uses for absolute page title.
+  },
+  description: "Super Powerful web app created with Next Js.",
+};
+
 const PostsPage = async () => {
   const allPosts = await getPosts();
   return (

@@ -43,7 +43,7 @@ const SearchMeals = () => {
       </div>
 
       {/* Display all searched meals */}
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-4 gap-5">
         {meals?.map((meal) => (
           <div
             key={meal.idMeal}
