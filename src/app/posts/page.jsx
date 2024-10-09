@@ -2,6 +2,7 @@ import { getPosts } from "@/utilities/getPost";
 import Link from "next/link";
 import { Bebas_Neue } from "next/font/google";
 
+// use specific font style on specific page.
 const bebasNeue = Bebas_Neue({ weight: ["400"], subsets: ["latin"] });
 
 export const metadata = {
