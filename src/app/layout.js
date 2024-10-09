@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
@@ -13,6 +14,8 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+const roboto = Roboto({weight: ["400", "500", "700"], subsets: ["latin"]})
+
 export const metadata = {
   title: {
     default: "Next Hero",
@@ -25,7 +28,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`antialiased ${roboto.className}`}
       >
         <Navbar/>
         {children}
