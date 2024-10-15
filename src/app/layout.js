@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import AuthProvider from "@/providers/AuthProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,13 +28,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      
       <body
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         className={`antialiased ${roboto.className}`}
       >
-        <Navbar/>
-        {children}
-        <footer className="text-center bg-red-400 py-2 text-white">2024 Next Hero developed by Shahjalal Hazari</footer>
+        <AuthProvider>
+          <Navbar/>
+          {children}
+          <footer className="text-center bg-red-400 py-2 text-white">2024 Next Hero developed by Shahjalal Hazari</footer>
+        </AuthProvider>
       </body>
     </html>
   );
