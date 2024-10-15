@@ -1,7 +1,11 @@
+import { getServerSession } from "next-auth";
 import Link from "next/link";
 import React from "react";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
 const AboutPage = () => {
+  const session = getServerSession(authOptions);
+  console.log({ session });
   return (
     <div className="px-40">
       This is About Us Page.

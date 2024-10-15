@@ -1,29 +1,14 @@
 import NextAuth from "next-auth";
-// import Credentials from "next-auth/providers/credentials";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 
-const handler = NextAuth({
+export const authOptions = {
+  secret: process.env.NEXT_AUTH_SECRET,
   session: {
     strategy: "jwt"
   },
   providers: [
     CredentialsProvider({
-      // credentials: {
-      //   email: {
-      //     label: "Email",
-      //     type: "email",
-      //     placeholder: "Your Email",
-      //     required: true
-      //   },
-      //   password: {
-      //     label: "Password",
-      //     type: "password",
-      //     placeholder: "Enter Password",
-      //     required: true
-      //   }
-      // },
-
       credentials: {
         email: {
           label: "Email",
@@ -47,6 +32,8 @@ const handler = NextAuth({
       },
     }),
   ],
-});
+}
+
+const handler = NextAuth(authOptions);
 
 export {handler as GET, handler as POST}

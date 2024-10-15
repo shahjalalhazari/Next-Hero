@@ -5,8 +5,8 @@ export const middleware = (request) => {
     // return NextResponse.rewrite(new URL("/about/mission", request.url))
     
     // conditional redirect or rewrite.
-    if (request.nextUrl.pathname.startsWith('/about')) {
-        return NextResponse.rewrite(new URL("/about/mission", request.url))
+    if (request.nextUrl.pathname.startsWith('/posts')) {
+        return NextResponse.rewrite(new URL("/meals", request.url))
     }
 };
 
