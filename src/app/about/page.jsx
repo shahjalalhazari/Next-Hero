@@ -5,7 +5,7 @@ import { authOptions } from "../api/auth/[...nextauth]/route";
 
 const AboutPage = () => {
   const session = getServerSession(authOptions);
-  console.log({ session });
+  // console.log({ session });
   return (
     <div className="px-40">
       This is About Us Page.

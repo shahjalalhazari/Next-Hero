@@ -7,6 +7,7 @@ const Navbar = () => {
   const pathName = usePathname();
   const router = useRouter();
   const session = useSession();
+  console.log(session);
 
   const links = [
     {
@@ -79,6 +80,14 @@ const Navbar = () => {
             {link.title}
           </Link>
         ))}
+
+        {session.status === "authenticated" && <div>
+          <h6 className="text-lg">
+            {session?.data?.user?.name}
+            <br />
+            <small>{session?.data?.user?.type}</small>
+          </h6>
+        </div>}
 
         {session.status === "authenticated" ? (
           <button
