@@ -1,5 +1,5 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -81,17 +81,19 @@ const Navbar = () => {
           </Link>
         ))}
 
-        {session.status === "authenticated" && <div>
-          <h6 className="text-lg">
-            {session?.data?.user?.name}
-            <br />
-            <small>{session?.data?.user?.type}</small>
-          </h6>
-        </div>}
+        {session.status === "authenticated" && (
+          <div>
+            <h6 className="text-lg">
+              {session?.data?.user?.name}
+              <br />
+              <small>{session?.data?.user?.type}</small>
+            </h6>
+          </div>
+        )}
 
         {session.status === "authenticated" ? (
           <button
-            onClick={handleLogin}
+            onClick={() => signOut()} // user sign out. just call the signOut method from next auth react.
             className="bg-white text-black px-3 py-2 rounded"
           >
             Sign Out
