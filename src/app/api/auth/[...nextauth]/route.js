@@ -1,6 +1,8 @@
 import connectDB from "@/lib/connectDB";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
+import FacebookProvider from "next-auth/providers/facebook";
 
 
 export const authOptions = {
@@ -11,6 +13,7 @@ export const authOptions = {
 
   },
   providers: [
+    // sign in email & password
     CredentialsProvider({
       credentials: {
         email: {
@@ -45,6 +48,18 @@ export const authOptions = {
         return true;
       },
     }),
+
+    // sign in with google
+    GoogleProvider({
+      clientId: process.env.NEXT_AUTH_GOOGLE_CLIENT_ID,
+      clientSecret: process.env.NEXT_AUTH_GOOGLE_CLIENT_SERCRET
+    }),
+
+    // sign in with facebook
+    FacebookProvider({
+      clientId: process.env.NEXT_AUTH_FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.NEXT_AUTH_FACEBOOK_CLIENT_SERCRET
+    })
   ],
 
   callbacks: {
