@@ -10,9 +10,11 @@ const SignUpPage = () => {
     event.preventDefault();
 
     const newUser = {
-      username: event.target.username.value,
+      name: event.target.username.value,
       email: event.target.email.value,
       password: event.target.password.value,
+      image: event.target.image.value,
+      type: event.target.type.value,
     };
 
     const res = await fetch("http://localhost:3000/api/auth/signup/new-user", {
@@ -65,6 +67,36 @@ const SignUpPage = () => {
             name="password"
             placeholder="Enter your password"
             required
+            className="w-full p-2.5 border rounded-md text-lg"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block mb-4 font-bold" htmlFor="image">
+            Image Link:
+          </label>
+          <input
+            type="text"
+            name="image"
+            placeholder="https://picsum.photos/200"
+            required
+            readOnly
+            value="https://picsum.photos/200"
+            className="w-full p-2.5 border rounded-md text-lg"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block mb-4 font-bold" htmlFor="type">
+            User Type:
+          </label>
+          <input
+            type="text"
+            name="type"
+            placeholder="Member"
+            value="Member"
+            required
+            readOnly
             className="w-full p-2.5 border rounded-md text-lg"
           />
         </div>

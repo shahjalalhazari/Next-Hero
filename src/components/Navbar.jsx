@@ -48,10 +48,6 @@ const Navbar = () => {
     },
   ];
 
-  const handleLogin = () => {
-    router.push("/login");
-  };
-
   if (pathName.includes("dashboard"))
     return (
       <nav className="bg-blue-400 mx-40">
@@ -99,11 +95,18 @@ const Navbar = () => {
             Sign Out
           </button>
         ) : (
-          <Link href="/api/auth/signin">
-            <button className="bg-white text-black px-3 py-2 rounded">
-              Sign In
-            </button>
-          </Link>
+          <>
+            <Link href="/api/auth/signin">
+              <button className="bg-white text-black px-3 py-2 rounded">
+                Sign In
+              </button>
+            </Link>
+            <Link href="/api/auth/signup">
+              <button className="bg-white text-black px-3 py-2 rounded">
+                Sign Up
+              </button>
+            </Link>
+          </>
         )}
       </ul>
     </nav>

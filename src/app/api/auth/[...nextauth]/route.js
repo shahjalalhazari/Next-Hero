@@ -1,3 +1,4 @@
+import connectDB from "@/lib/connectDB";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -28,16 +29,16 @@ export const authOptions = {
 
       async authorize(credentials) {
         const {email, password} = credentials;
-        // console.log(`Email: ${email} | Password: ${password}`);
         if(!credentials) {
           return null;
         }
         if (email) {
-          const currentUser = users.find((user) => user.email === email)
+          const db = await connectDB();
+          const currentUser = await db.collection("users").findOne({email});
           console.log(currentUser);
           if (currentUser) {
             if (currentUser.password === password) {
-              return {...currentUser}
+              return currentUser
             }
           }
         }
@@ -66,47 +67,3 @@ export const authOptions = {
 const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST }
-
-
-const users = [
-  {
-    id: 1,
-    name: "Shahjalal",
-    email: "jalal@gmail.com",
-    password: "Password",
-    type: "Admin",
-    image: "https://picsum.photos/200"
-  },
-  {
-    id: 2,
-    name: "Emon",
-    email: "emon@gmail.com",
-    password: "Password",
-    type: "Moderator",
-    image: "https://picsum.photos/200"
-  },
-  {
-    id: 3,
-    name: "Rubayet",
-    email: "rubayet@gmail.com",
-    password: "Password",
-    type: "Staff",
-    image: "https://picsum.photos/200"
-  },
-  {
-    id: 4,
-    name: "Emran",
-    email: "emran@gmail.com",
-    password: "Password",
-    type: "user",
-    image: "https://picsum.photos/200"
-  },
-  {
-    id: 5,
-    name: "Rubayed",
-    email: "rubayed@gmail.com",
-    password: "Password",
-    type: "Moderator",
-    image: "https://picsum.photos/200"
-  },
-]
